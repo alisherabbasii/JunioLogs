@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import { FiltersComponent } from 'app/components/filters/filters.component';
+import { CommonModule } from '@angular/common';
 
 const exampleRoutes: Route[] = [
     {
@@ -26,6 +27,7 @@ const exampleRoutes: Route[] = [
         MatFormFieldModule,
         MatInputModule,
         MatSortModule,
+        CommonModule,
         RouterModule.forChild(exampleRoutes)
     ]
 })

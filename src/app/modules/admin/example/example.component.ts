@@ -4,10 +4,16 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
 export interface UserData {
-    id: string;
-    name: string;
-    progress: string;
-    fruit: string;
+    payee: string;
+    child: string;
+    threeWeeks: string;
+    twoWeeks: string;
+    oneWeek: string;
+    Current: string;
+    PendingAmount: string;
+    OverPayment: string;
+    PendingCredinote: string;
+    TotalPendingAmount: string;
   }
   
   /** Constants used to fill up our data base. */
@@ -22,8 +28,8 @@ export interface UserData {
     'pineapple',
   ];
   const NAMES: string[] = [
-    'Maia',
-    'Asher',
+    'Berlin',
+    'John Deo',
     'Olivia',
     'Atticus',
     'Amelia',
@@ -49,7 +55,7 @@ export interface UserData {
 })
 export class ExampleComponent
 {
-    displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
+    displayedColumns: string[] = ['payee', 'child', 'threeWeeks','twoWeeks','oneWeek','Current','PendingAmount','OverPayment','PendingCredinote', 'TotalPendingAmount'];
     dataSource: MatTableDataSource<UserData>;
   
     @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -57,7 +63,7 @@ export class ExampleComponent
   
     constructor() {
       // Create 100 users
-      const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
+      const users = Array.from({length: 100}, (_, k:any) => createNewUser(k));
   
       // Assign the data to the data source for the table to render
       this.dataSource = new MatTableDataSource(users);
@@ -81,18 +87,26 @@ export class ExampleComponent
       }
   }
 
-  function createNewUser(id: number): UserData {
-    const name =
+  function createNewUser(payee: string): UserData {
+    const child =
       NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
       ' ' +
       NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
       '.';
   
     return {
-      id: id.toString(),
-      name: name,
-      progress: Math.round(Math.random() * 100).toString(),
-      fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
+      payee: child,
+      child: child,
+      threeWeeks: Math.round(Math.random() * 100).toString(),
+      twoWeeks: Math.round(Math.random() * 100).toString(),
+      oneWeek: Math.round(Math.random() * 100).toString(),
+      Current: Math.round(Math.random() * 100).toString(),
+      PendingAmount: Math.round(Math.random() * 100).toString(),
+      OverPayment: Math.round(Math.random() * 100).toString(),
+      PendingCredinote: Math.round(Math.random() * 100).toString(),
+      TotalPendingAmount: Math.round(Math.random() * 100).toString(),
+    
+
     };
 
     

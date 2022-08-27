@@ -1,6 +1,6 @@
 <!-- Item wrapper -->
 <div
-    class="fuse-vertical-navigation-item-wrapper"
+    class="fuse-vertical-navigation-item-wrapper "
     [class.fuse-vertical-navigation-item-has-subtitle]="!!item.subtitle"
     [ngClass]="item.classes?.wrapper">
 
@@ -97,19 +97,21 @@
 <!-- Item template -->
 <ng-template #itemTemplate>
 
+    <div class="flex align-center space-x-3 align-items-center">
+        
     <!-- Icon -->
     <ng-container *ngIf="item.icon">
-        <mat-icon
-            class="fuse-vertical-navigation-item-icon"
-            [ngClass]="item.classes?.icon"
-            [svgIcon]="item.icon"></mat-icon>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="w-6 h-6 ">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+          
     </ng-container>
 
     <!-- Title & Subtitle -->
     <div class="fuse-vertical-navigation-item-title-wrapper">
         <div class="fuse-vertical-navigation-item-title">
-            <span [ngClass]="item.classes?.title">
-                {{item.title}}
+            <span [ngClass]="item.classes?.title" class="text-white">
+                Finance & Account
             </span>
         </div>
         <ng-container *ngIf="item.subtitle">
@@ -120,6 +122,13 @@
             </div>
         </ng-container>
     </div>
+    <ng-container *ngIf="item.icon">
+        <div class="absolute  right-0">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" class="w-4 h-4 ">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+        </div>
+    </ng-container>
 
     <!-- Badge -->
     <ng-container *ngIf="item.badge">
@@ -132,4 +141,5 @@
         </div>
     </ng-container>
 
+</div>
 </ng-template>

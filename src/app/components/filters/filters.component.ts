@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
 
+  showOtherFilters:boolean=true;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  toggleIcon(){
+    this.showOtherFilters = !this.showOtherFilters;
+  }
 }
