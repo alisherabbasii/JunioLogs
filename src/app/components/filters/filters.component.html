@@ -1,5 +1,5 @@
 <div class="flex bg-white ">
-    <div class="flex space-x-8 mt-6">
+    <div class="flex space-x-8 mt-6 ml-6">
         <p class="text-slate-500 cursor-pointer" >Transaction List</p>
         <p class="text-slate-500 cursor-pointer">Invoices</p>
         <p class="text-slate-500 cursor-pointer">Payments</p>
@@ -11,7 +11,7 @@
 </div>
 
 <div class="bg-gray-100 p-4 flex align-items-center justify-between">
-    <div class="w-25">
+    <div style="width: 255px">
         <label for="sort" class="col-sm-2 control-label"> Child </label>
         <select class="form-select  mb-3" aria-label="example">
             <option selected>Select Child</option>
@@ -20,7 +20,7 @@
             <option value="3">Rio</option>
           </select>
     </div>
-    <div class="w-25">
+    <div style="width: 255px">
         <label for="sort" class="col-sm-2 control-label"> Payee </label>
         <select class="form-select  mb-3" aria-label="example">
             <option selected>Select payee</option>
@@ -47,13 +47,65 @@
             </svg>
             
       </div>
-      <div>
-        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div (click)="toggleIcon()" *ngIf="showOtherFilters;else other_filter">
+        <svg  width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="44" height="44" rx="22" fill="#EAECF7"/>
             <path d="M29 19L22 26L15 19" stroke="#232323" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             
           
       </div>
+      <ng-template #other_filter>
+        <svg (click)="toggleIcon()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+        
+      </ng-template>
 
+</div>
+
+
+<div *ngIf="!showOtherFilters" class="bg-gray-100 p-4 flex align-items-center justify-between">
+  <div style="width: 255px">
+     
+      <div class="form-group">
+        <label for="sort" class="col-sm-2 control-label"> Start </label>
+        <input type="date" class="form-control" name="" id="">
+      </div>
+  </div>
+  <div style="width: 255px">
+    
+    <div class="form-group">
+      <label for="sort" class="col-sm-2 control-label"> End  </label>
+      <input type="date" class="form-control" name="" id="">
+    </div>
+</div>
+
+  <div class="form-check mt-4">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+      <label class="form-check-label" for="flexCheckChecked">
+       Include $0 accounts
+      </label>
+    </div>
+
+    <div class="form-check mt-4">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" >
+      <label class="form-check-label" for="flexCheckChecked">
+       Winz Records
+      </label>
+    </div>
+
+    <div class="form-check mt-4">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" >
+      <label class="form-check-label" for="flexCheckChecked">
+      Monthly
+      </label>
+    </div>
+
+    <div class="form-check mt-4">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" checked>
+      <label class="form-check-label" for="flexCheckChecked">
+      Weekly
+      </label>
+    </div>
 </div>
