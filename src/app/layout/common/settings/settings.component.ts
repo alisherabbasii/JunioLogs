@@ -34,6 +34,7 @@ export class SettingsComponent implements OnInit, OnDestroy
     scheme: 'dark' | 'light';
     theme: string;
     themes: Themes;
+    showPrintIcons:boolean=false;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
@@ -117,5 +118,9 @@ export class SettingsComponent implements OnInit, OnDestroy
     setTheme(theme: Theme): void
     {
         this._fuseConfigService.config = {theme};
+    }
+
+    showPrintOptions(){
+        this.showPrintIcons = !this.showPrintIcons;
     }
 }
